@@ -34,22 +34,18 @@ movies = ['300', 'The avengers ultron', 'iron man', 'skyfall', 'dark knight rise
 #movies = ['iron man 3','thor 2']
 #Initializes the tmbd search method
 search = tmdb.Search()
-#Counter to determine the amount of times the while loop has to run.
-numMovie = len(movies)
 #Array to store the ID of each movie
 mID = []
-#counter to stop the loop
-counter = len(mID)
 
-while (counter < numMovie):
-	for m in movies:
-		movie = search.movie(query= m)
-		result = search.results[0]
-		#print result['id']
-		movieID = result['id']
-		mID.insert(counter,movieID)
-		counter = counter + 1
-
+# for every movie in movies, do a search and append
+# the results i the mID array
+for m in movies:
+	movie = search.movie(query= m)
+	result = search.results[0]
+	#print result['id']
+	movieID = result['id']
+	mID.append(movieID)
+	
 ################################################################################################
 
 #Finds each movie by using the ID and creates an Movie Object for each movie then
